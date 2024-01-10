@@ -15,7 +15,7 @@ def csv_to_js_array(csv_file):
     return ids, grades
 
 if __name__ == "__main__":
-    csv_file = 'final.csv'
+    csv_file = 'data.csv'
     output_js_file = 'output.js'
     ids, grades = csv_to_js_array(csv_file)
 

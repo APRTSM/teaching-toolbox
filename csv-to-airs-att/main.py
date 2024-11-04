@@ -19,8 +19,10 @@ if __name__ == "__main__":
     output_js_file = 'output.js'
     ids, grades = csv_to_js_array(csv_file)
 
+    grades = [2 if i else 0 for i in grades]
+
     js_code = f"""
-        var ids = {ids}
+        var ids = {ids};
         var grades = {grades};
     """ + """
         

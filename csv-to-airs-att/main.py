@@ -26,13 +26,26 @@ if __name__ == "__main__":
         var grades = {grades};
     """ + """
         
-        var elements = document.querySelectorAll('[id^="stdSubGrades_"]');
+        var elements = document.querySelectorAll('[id^="stdAtt_"]');
 
         elements.forEach(function(element) {
-            id = element.id.replace(new RegExp("^" + "stdSubGrades_"), "")
-            student_index = ids.indexOf(id);
+            var id = element.id.replace(new RegExp("^" + "stdAtt_"), "");
+            var student_index = ids.indexOf(id);
             if (student_index !== -1) {
-            element.value = grades[student_index]
+                // Retrieve the desired value for this student
+                var desiredValue = grades[student_index];
+
+                // Get all option elements within the current select element
+                var options = element.options;
+
+                // Loop through all options and set the 'selected' attribute accordingly
+                for (var i = 0; i < options.length; i++) {
+                    if (options[i].value == desiredValue) {
+                        options[i].selected = true;
+                    } else {
+                        options[i].selected = false;
+                    }
+                }
             }
         });
     """
